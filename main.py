@@ -34,11 +34,12 @@ def calculate_days(start_date, end_date):
 
 # Пример использования
 if __name__ == "__main__":
-    start_date_input = input("Введите начальную дату (YYYY-MM-DD): ")
-    end_date_input = input("Введите конечную дату (YYYY-MM-DD): ")
+    start_date_input = input("Введите начальную дату (DD-MM-YYYY): ")
+    end_date_input = input("Введите конечную дату (DD-MM-YYYY): ")
 
-    start_date = pd.to_datetime(start_date_input)
-    end_date = pd.to_datetime(end_date_input)
+    # Преобразуем даты из формата DD-MM-YYYY в формат YYYY-MM-DD
+    start_date = pd.to_datetime(start_date_input, format='%d-%m-%Y')
+    end_date = pd.to_datetime(end_date_input, format='%d-%m-%Y')
 
     total_days, working_days = calculate_days(start_date, end_date)
 
